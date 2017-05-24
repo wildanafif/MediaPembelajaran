@@ -1,8 +1,10 @@
 package com.yokoding.wildanafif.mediapembelajaranproject;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -15,6 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.yokoding.wildanafif.mediapembelajaranproject.ui.fragment.MainFragment;
+import com.yokoding.wildanafif.mediapembelajaranproject.ui.fragment.MateriFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -26,10 +29,7 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        MainFragment fragment = new MainFragment();
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.fragment_container, fragment);
-        fragmentTransaction.commit();
+        this.setUiFragment();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -91,22 +91,46 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        if (id == R.id.nav_home) {
+            MainFragment mainFragment=new MainFragment();
+            Intent i = new Intent(MainActivity.this, MainActivity.class);
+            i.putExtra("fragment", mainFragment);
+            startActivity(i);
+        } else if (id == R.id.nav_materi) {
+            MateriFragment materiFragment=new MateriFragment();
+            Intent i = new Intent(MainActivity.this, MainActivity.class);
+            i.putExtra("fragment", materiFragment);
+            startActivity(i);
 
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_profil) {
 
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void setFragment(Fragment fragment_p){
+        Fragment fragment = fragment_p;
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_container, fragment);
+        fragmentTransaction.commit();
+    }
+
+    private void setUiFragment(){
+        Intent intent = getIntent();
+        Fragment fragment = null;
+        if(intent.hasExtra("fragment")){
+            fragment =(Fragment) getIntent().getSerializableExtra("fragment");
+
+        }
+        else{
+            fragment=new MainFragment();
+        }
+        this.setFragment(fragment);
+
+
+
     }
 }

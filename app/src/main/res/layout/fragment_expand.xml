@@ -1,0 +1,83 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.yokoding.wildanafif.mediapembelajaranproject.ui.fragment.MateriFragment"
+    android:orientation="vertical"
+    android:padding="10dp"
+    >
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="14dp"
+            android:text="Arsitektur dan Organisasi Komputer"
+            android:textAlignment="center"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+        <ExpandableListView
+            android:id="@+id/listexpand"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></ExpandableListView>
+    </LinearLayout>
+    <Button
+        android:id="@+id/expandableButton1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:drawableRight="@android:drawable/arrow_down_float"
+        android:textAllCaps="false"
+        android:paddingRight="10dp"
+        android:text="Indikator"
+        android:textColor="#fff" />
+
+    <com.github.aakira.expandablelayout.ExpandableRelativeLayout
+        android:id="@+id/expandableLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/expandableButton1"
+        android:background="@color/colorPrimaryDark"
+        android:padding="16dp"
+        app:ael_duration="400"
+        app:ael_expanded="false"
+        app:ael_interpolator="accelerate"
+        app:ael_orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:id="@+id/keterangan1"
+            android:text="Dalam Bab ini akan diajarkan tentang materi dasar AOK, Tujuandari Mata pelajaran ini adalah agara nantina siswa dapat memahami secara lebih jelas hardware dalam komputer" />
+    </com.github.aakira.expandablelayout.ExpandableRelativeLayout>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/list_sub_materi_oo"
+        android:dividerHeight="1dp"
+        android:divider="#d1d1d1"
+        ></ListView>
+    <Button
+        android:id="@+id/ulangan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border_top"
+        android:textAllCaps="false"
+        android:paddingRight="10dp"
+        android:text="Evaluasi"
+        android:textColor="#fff" />
+
+
+</LinearLayout>

@@ -5,4 +5,11 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+
+    <string-array name="Bab">
+        <item>Bab I   Arsitektur dan Organisasi Komputer</item>
+        <item>Bab II  Media Penyimpanan Data Ekternal</item>
+        <item>Bab III Karakteristik Memori</item>
+        <item>Bab IV  Memori Sekunder</item>
+    </string-array>
 </resources>
