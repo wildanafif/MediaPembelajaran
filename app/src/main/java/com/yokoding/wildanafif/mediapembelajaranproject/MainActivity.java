@@ -16,6 +16,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.yokoding.wildanafif.mediapembelajaranproject.model.DetailMateri;
 import com.yokoding.wildanafif.mediapembelajaranproject.ui.fragment.MainFragment;
 import com.yokoding.wildanafif.mediapembelajaranproject.ui.fragment.MateriFragment;
 
@@ -113,6 +114,13 @@ public class MainActivity extends AppCompatActivity
 
     public void setFragment(Fragment fragment_p){
         Fragment fragment = fragment_p;
+        Intent intent = getIntent();
+        if (intent.hasExtra("msg")){
+            Bundle bundle=new Bundle();
+            DetailMateri detailMateri= (DetailMateri) getIntent().getSerializableExtra("msg");
+            bundle.putSerializable("detailmateri",detailMateri);
+            fragment.setArguments(bundle);
+        }
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.fragment_container, fragment);
         fragmentTransaction.commit();

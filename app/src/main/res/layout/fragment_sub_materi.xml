@@ -34,17 +34,25 @@
                 android:layout_marginBottom="5dp"
                 >
                 <TextView
+                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="AOK Adalah Adalah konsep perencanaan dan struktur pengoperasian dasar dari suatu sistem komputer. Arsitektur komputer ini merupakan rencana cetak-biru dan deskripsi fungsional dari kebutuhan bagian perangkat keras yang didesain (kecepatan proses dan sistem interkoneksinya). Dalam hal ini, implementasi perencanaan dari masing–masing bagian akan lebih difokuskan terutama, mengenai bagaimana CPU akan bekerja, dan mengenai cara pengaksesan data dan alamat dari dan ke memori cache, RAM, ROM, cakram keras, dll). Beberapa contoh dari arsitektur komputer ini adalah Arsitektur von Neumann, CISC, RISC, blue gene, dll."
                     android:id="@+id/text_sub_materi"
                     />
+
             </LinearLayout>
+            <WebView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/web_isi_materi"
+                ></WebView>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
                 android:orientation="vertical"
+                android:id="@+id/layout_gambar"
                 >
                 <TextView
                     android:layout_width="match_parent"
@@ -54,11 +62,10 @@
                     android:textSize="25dp"
                     android:id="@+id/title_gambar_sub_materi"
                     />
-                <ImageView
+                <com.android.volley.toolbox.NetworkImageView
                     android:layout_width="match_parent"
                     android:layout_height="250dp"
                     android:id="@+id/image_sub_materi"
-                    android:src="@drawable/game_of_thrones"
                     />
 
             </LinearLayout>
@@ -67,6 +74,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
                 android:orientation="vertical"
+                android:id="@+id/layout_video"
                 >
                 <TextView
                     android:layout_width="match_parent"

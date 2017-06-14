@@ -7,6 +7,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.yokoding.wildanafif.mediapembelajaranproject.R;
+import com.yokoding.wildanafif.mediapembelajaranproject.model.DetailMateri;
 import com.yokoding.wildanafif.mediapembelajaranproject.model.Materi;
 
 import java.util.List;
@@ -17,9 +18,9 @@ import java.util.List;
 
 public class ListAdapterSubMateri extends BaseAdapter {
     Context mContext;
-    private List<Materi> mProductList;
+    private List<DetailMateri> mProductList;
 
-    public ListAdapterSubMateri(Context mContext, List<Materi> mProductList) {
+    public ListAdapterSubMateri(Context mContext, List<DetailMateri> mProductList) {
         this.mContext = mContext;
         this.mProductList = mProductList;
     }
@@ -43,7 +44,7 @@ public class ListAdapterSubMateri extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         View v = View.inflate(mContext, R.layout.list_sub_materi, null);
         TextView title = (TextView)v.findViewById(R.id.title_sub_materi_list);
-        title.setText(mProductList.get(position).getNama_materi());
+        title.setText(mProductList.get(position).getTitle());
         return v;
     }
 }
